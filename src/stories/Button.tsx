@@ -3,29 +3,29 @@ import './button.css';
 
 interface ButtonProps {
   /**
-   * Is this the principal call to action on the page?
+   * 페이지에 중요한 버튼이라면 primary prop을 전달합니다.
    */
   primary?: boolean;
   /**
-   * What background color to use
+   * 배경색을 설정합니다.
    */
   backgroundColor?: string;
   /**
-   * How large should the button be?
+   * 크기를 설정합니다.
    */
   size?: 'small' | 'medium' | 'large';
   /**
-   * Button contents
+   * 버튼의 텍스트를 지정합니다.
    */
   label: string;
   /**
-   * Optional click handler
+   * 클릭 핸들러를 선택적으로 제공할 수 있습니다.
    */
   onClick?: () => void;
 }
 
 /**
- * Primary UI component for user interaction
+ * 유저와 인터랙션하기 위한 버튼 컴포넌트입니다.
  */
 export const Button = ({
   primary = false,
@@ -34,11 +34,15 @@ export const Button = ({
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const mode = primary
+    ? 'storybook-button--primary'
+    : 'storybook-button--secondary';
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={['storybook-button', `storybook-button--${size}`, mode].join(
+        ' '
+      )}
       style={{ backgroundColor }}
       {...props}
     >
